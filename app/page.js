@@ -12,17 +12,17 @@ async function getSkills() {
 
 export default async function Home() {
   const classes = await getClasses();
-  const className = classes.results.map((className) => (
-    <Link key={className.index} href={`/${className.index}`}>
-      <h2>{className.name}</h2>
+  const className = classes.results.map((classe) => (
+    <Link key={classe.index} href={`/${classe.index}`}>
+      <h2 className="text-2xl py-3 hover:bg-light-grey">{classe.name}</h2>
     </Link>
   ));
 
   const skills = await getSkills();
 
   return (
-    <div>
-      <h1>Choose your class</h1>
+    <div className="font-sans m-8 flex flex-col text-center">
+      <h1 className="font-bold text-5xl m-5 text">Choose your class</h1>
       {className}
     </div>
   );
